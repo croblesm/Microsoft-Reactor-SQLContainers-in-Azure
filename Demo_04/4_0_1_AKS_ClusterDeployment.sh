@@ -5,6 +5,7 @@
 #   2- Get AKS credentials for AKS cluster
 #   3- Check kubectl cluster context
 #   4- Get AKS cluster nodes
+#   5- Check Kubernetes dashboard
 # -----------------------------------------------------------------------------
 # References:
 #   Kubernetes cheat sheet
@@ -19,7 +20,7 @@ aks_cluster=endurance
 location=westus
 acr_name=dbamastery;
 az aks get-versions --location $location --output table;
-k8s_version=1.16.7;
+k8s_version=1.16.10;
 vm_size=Standard_DS3_v2;
 cd ~/Documents/$resource_group/Demo_04;
 
@@ -39,13 +40,14 @@ az aks create \
     --attach-acr $acr_name
 
 # 2- Get AKS credentials for AKS cluster
-az aks get-credentials --resource-group $resource_group --name $aks_cluster
-
-# 3- Create cluster role for dashboard
-kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+az aks get-credentials -a --resource-group $resource_group --name $aks_cluster
 
 # 3- Check kubectl cluster context
 kubectl config get-contexts
 
 # 4- Get AKS cluster nodes
 kubectl get nodes
+
+# 5- Check Kubernetes dashboard
+# Make sure to select your $HOME/.kube/config file
+az aks browse --resource-group $resource_group --name $aks_cluster

@@ -53,38 +53,38 @@ az container create \
           "detailStatus": "",
           "exitCode": null,
           "finishTime": null,
-          "startTime": "2020-04-09T18:17:41+00:00",
+          "startTime": "2020-08-02T01:27:00+00:00",
           "state": "Running"
         },
         "events": [
           {
             "count": 1,
-            "firstTimestamp": "2020-04-09T18:16:24+00:00",
-            "lastTimestamp": "2020-04-09T18:16:24+00:00",
+            "firstTimestamp": "2020-08-02T01:25:45+00:00",
+            "lastTimestamp": "2020-08-02T01:25:45+00:00",
             "message": "pulling image \"mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-18.04\"",
             "name": "Pulling",
             "type": "Normal"
           },
           {
             "count": 1,
-            "firstTimestamp": "2020-04-09T18:17:35+00:00",
-            "lastTimestamp": "2020-04-09T18:17:35+00:00",
+            "firstTimestamp": "2020-08-02T01:26:43+00:00",
+            "lastTimestamp": "2020-08-02T01:26:43+00:00",
             "message": "Successfully pulled image \"mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-18.04\"",
             "name": "Pulled",
             "type": "Normal"
           },
           {
             "count": 1,
-            "firstTimestamp": "2020-04-09T18:17:41+00:00",
-            "lastTimestamp": "2020-04-09T18:17:41+00:00",
+            "firstTimestamp": "2020-08-02T01:27:00+00:00",
+            "lastTimestamp": "2020-08-02T01:27:00+00:00",
             "message": "Created container",
             "name": "Created",
             "type": "Normal"
           },
           {
             "count": 1,
-            "firstTimestamp": "2020-04-09T18:17:41+00:00",
-            "lastTimestamp": "2020-04-09T18:17:41+00:00",
+            "firstTimestamp": "2020-08-02T01:27:00+00:00",
+            "lastTimestamp": "2020-08-02T01:27:00+00:00",
             "message": "Started container",
             "name": "Started",
             "type": "Normal"
@@ -125,7 +125,7 @@ az container create \
   "ipAddress": {
     "dnsNameLabel": "aci-sql-dev01",
     "fqdn": "aci-sql-dev01.westus.azurecontainer.io",
-    "ip": "13.88.140.96",
+    "ip": "13.86.137.35",
     "ports": [
       {
         "port": 1433,

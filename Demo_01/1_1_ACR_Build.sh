@@ -21,11 +21,13 @@
 resource_group=Microsoft-Reactor;
 acr_name=dbamastery;
 acr_repo=mssqltools-alpine;
+location=westus;
 cd ~/Documents/$resource_group/Demo_01;
-az acr login --name $acr_name;
+# az group create --name $resource_group --location $location
+# az acr login --name $acr_name;
 
 # 1- Create Azure Container Registry
-az acr create --resource-group $resource_group --name $acr_name --sku Standard --location westus
+az acr create --resource-group $resource_group --name $acr_name --sku Standard --location $location
 
 # 2- List ACR registry
 az acr list --resource-group $resource_group -o table
