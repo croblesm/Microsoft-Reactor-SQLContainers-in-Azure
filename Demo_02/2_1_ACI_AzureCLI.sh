@@ -17,7 +17,7 @@
 #   open https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
 # 0- Env variables | demo path
-resource_group=PASS-Marathon;
+resource_group=Microsoft-Reactor;
 aci_name=aci-sql-dev01;
 cd ~/Documents/$resource_group/Demo_02;
 
@@ -115,7 +115,7 @@ az container create \
   ],
   "diagnostics": null,
   "dnsConfig": null,
-  "id": "/subscriptions/a3729944-2d39-4be1-8251-0529dd60c431/resourceGroups/PASS-Marathon/providers/Microsoft.ContainerInstance/containerGroups/aci-sql-dev01",
+  "id": "/subscriptions/a3729944-2d39-4be1-8251-0529dd60c431/resourceGroups/Microsoft-Reactor/providers/Microsoft.ContainerInstance/containerGroups/aci-sql-dev01",
   "identity": null,
   "imageRegistryCredentials": null,
   "instanceView": {
@@ -139,7 +139,7 @@ az container create \
   "networkProfile": null,
   "osType": "Linux",
   "provisioningState": "Succeeded",
-  "resourceGroup": "PASS-Marathon",
+  "resourceGroup": "Microsoft-Reactor",
   "restartPolicy": "Always",
   "tags": {},
   "type": "Microsoft.ContainerInstance/containerGroups",

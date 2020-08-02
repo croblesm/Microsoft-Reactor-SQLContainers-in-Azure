@@ -15,7 +15,7 @@
 #   https://docs.microsoft.com/en-us/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15
 
 # 0- Env variables | demo path
-resource_group=PASS-Marathon;
+resource_group=Microsoft-Reactor;
 cd ~/Documents/$resource_group/Demo_04;
 sa_password="_EnDur@nc3_";
 

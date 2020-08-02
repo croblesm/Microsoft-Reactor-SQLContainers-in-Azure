@@ -21,7 +21,7 @@
 #   open https://docs.microsoft.com/en-us/azure/container-instances/container-instances-reference-yaml
 
 # 0- Env variables | demo path
-resource_group=PASS-Marathon
+resource_group=Microsoft-Reactor
 storage_account_name=acivolumes
 location=westus
 aci_group_name=AG-RedScale;

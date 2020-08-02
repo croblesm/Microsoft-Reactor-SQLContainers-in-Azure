@@ -1,13 +1,12 @@
-# PASS Marathon - 2020
-## [SQL Server containers in Microsoft Azure](https://www.pass.org/marathon/2020/securedatastorage/Sessions/Details.aspx?sid=104333)
+# Microsoft Reactor
+## [SQL Server containers in Microsoft Azure](https://www.meetup.com/Microsoft-Reactor-Redmond/events/271447622/)
 
-Containers offer efficiency, flexibility, and portability out of the box, becoming a very attractive platform for application and database developers who wants to build sandbox environments without the burdens of a complex infrastructure.
+Containers offer efficiency, flexibility, and portability out of the box. Becoming a very attractive platform for application and database developers who wants to build sandbox environments, without the burdens of a complex infrastructure.
 
 As the container technology growths to become more relevant and popular, Microsoft continues to provide container cloud-based services like ACI and AKS to fulfill this need.
 
-If you are looking to translate your existing knowledge about SQL Server containers on-prem to the cloud, this session will get you started in your container-driven cloud journey to design, deploy, manage and monitor SQL Containers in Microsoft Azure.
+If you are looking to translate your existing knowledge about SQL Server containers on-premises to the cloud, this session will get you started in your container-driven cloud journey to design, deploy, manage and monitor SQL Containers in Microsoft Azure.
 
-[![24 Hours of PASS](https://img.youtube.com/vi/vgvQW_Tli1s/hqdefault.jpg)](https://youtu.be/vgvQW_Tli1s "PASS Marathon - Carlos Robles")
 
 ## **Prerequisites**  
 * A valid Microsoft Azure account and subscription

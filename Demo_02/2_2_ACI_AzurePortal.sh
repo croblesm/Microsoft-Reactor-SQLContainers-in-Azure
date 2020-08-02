@@ -14,7 +14,7 @@
 #   open https://azure.microsoft.com/en-us/services/container-instances/#overview
 
 # 0- Env variables | demo path
-resource_group=PASS-Marathon;
+resource_group=Microsoft-Reactor;
 aci_name=aci-sql-dev01;
 cd ~/Documents/$resource_group/Demo_02;
 

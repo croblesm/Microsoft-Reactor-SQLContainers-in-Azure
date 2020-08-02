@@ -14,7 +14,7 @@
 #   https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest
 
 # 0- Env variables | demo path
-resource_group=PASS-Marathon;
+resource_group=Microsoft-Reactor;
 aks_cluster=endurance
 location=westus
 acr_name=dbamastery;

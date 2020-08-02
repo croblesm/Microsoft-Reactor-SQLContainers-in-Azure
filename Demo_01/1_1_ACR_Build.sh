@@ -18,7 +18,7 @@
 #   open https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest
 
 # 0- Env variables | demo path
-resource_group=PASS-Marathon;
+resource_group=Microsoft-Reactor;
 acr_name=dbamastery;
 acr_repo=mssqltools-alpine;
 cd ~/Documents/$resource_group/Demo_01;
@@ -65,7 +65,7 @@ docker push $acr_name.azurecr.io/$acr_repo:2.0
 open https://portal.azure.com
 
 # Navigate to cloud share
-cd clouddrive/PASS-Marathon/Demo_01
+cd clouddrive/Microsoft-Reactor/Demo_01
 ls -ll
 
 # Build, tag and push in a single instruction
