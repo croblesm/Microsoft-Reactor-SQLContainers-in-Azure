@@ -33,13 +33,13 @@ docker login azure
 docker context ls
 
 # 3- Create ACI context called "Microsoft-Reactor"
-docker context create aci Microsof-Reactor \
+docker context create aci Microsoft-Reactor \
     --subscription-id a3729944-2d39-4be1-8251-0529dd60c431 \
     --resource-group Microsoft-Reactor \
     --location westus
 
 # 4- Set Docker CLI context to ACI
-docker context use Microsof-Reactor
+docker context use Microsoft-Reactor
 
 # 5- Check Docker CLI context
 docker context ls
@@ -70,7 +70,12 @@ docker logs aci-sql-dev03 -f
 # 10- Connect from local SQLCMD
 sa_password="_SqLr0ck5_";
 server_name=`docker inspect $aci_name | grep "HostIP" | awk '{print $2}' | sed 's/\"//g'`
+server_name=$(docker inspect $aci_name | jq -r ".Ports[0].HostIP")
 
 # Executing queries
 sqlcmd -S $server_name -U SA -P $sa_password -Q "set nocount on; select @@servername;"
 sqlcmd -S $server_name -U SA -P $sa_password -Q "set nocount on; select name from sys.databases"
+
+# 11- Docker compose?
+docker compose up --project-name CoolStore
+docker compose down --project-name CoolStore

@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    web:
+        image: dbamastery.azurecr.io/cool-store-web:1.0
+        ports:
+            - "5000:5000"
+        depends_on:
+            - db
+    db:
+        image: dbamastery.azurecr.io/cool-store-db:1.0
+        environment:
+            SA_PASSWORD: "_SqLr0ck5_"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
