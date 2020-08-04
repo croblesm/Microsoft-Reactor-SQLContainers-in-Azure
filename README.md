@@ -7,6 +7,7 @@ As the container technology growths to become more relevant and popular, Microso
 
 If you are looking to translate your existing knowledge about SQL Server containers on-premises to the cloud, this session will get you started in your container-driven cloud journey to design, deploy, manage and monitor SQL Containers in Microsoft Azure.
 
+[![N|Solid](./Microsoft-CarlosRobles.png)](https://aka.ms/SQLContainersMSAzure)
 
 ## **Prerequisites**  
 * A valid Microsoft Azure account and subscription
