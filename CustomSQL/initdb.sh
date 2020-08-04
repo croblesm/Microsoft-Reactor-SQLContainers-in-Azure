@@ -1,49 +1,50 @@
 #!/bin/bash
 
-# Wait 60 seconds for SQL Server to start up by ensuring that 
-# Calling SQLCMD does not return an error code, which will ensure that sqlcmd is accessible
-# and that system and user databases return "0" which means all databases are in an "online" state
-# https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-2017 
+#==============================================================================
+# Script name   : initdb.sh
+# Description   : Script to deploy SQL scripts
+# Author        : Carlos Robles
+# Email         : crobles@dbamastery.com
+# Twitter       : @dbamastery
+# Date          : 20200801
+# 
+# Version       : 1.1
+# Usage         : bash initdb.sh 30
+#
+# Notes         : 
+#               crobles - 202008 - First version of this script
+#==============================================================================
 
-# Local variables
-DBSTATUS=1
-ERRCODE=1
-i=0
+# Mapping env variables with local variables
+wait_sql=$1
 
-# Checking database status, elapsed time and error code
-while [[ $DBSTATUS -ne 0 ]] && [[ $i -lt 60 ]] && [[ $ERRCODE -ne 0 ]]; do
-	i=$i+1
-	#DBSTATUS=$(/opt/mssql-tools/bin/sqlcmd -h -1 -t 1 -U sa -P $SA_PASSWORD -Q "SET NOCOUNT ON; SELECT SUM(state) FROM sys.databases")
-    DBSTATUS=$(sqlcmd -U SA -h -1 -t 1 -Q "SET NOCOUNT ON; SELECT SUM(state) FROM sys.databases")
-	ERRCODE=$?
-	sleep 1
-done
-
-# Exiting container with error
-if [ $DBSTATUS -ne 0 ] OR [ $ERRCODE -ne 0 ]; then 
-	echo "SQL Server took more than 60 seconds to start up or one or more databases are not in an ONLINE state"
-	exit 1
-fi
-
-if [ ! -f /tmp/db-initialized ]
+# Check if container was already created (Initialized)
+if [ ! -f /tmp/initdb/db-init-1 ]
 then
-
-    # Loading scripts
-    scripts=`ls /tmp/*.sql`
+    # Wait for the SQL Server to start
+    echo -e "\nWaiting $wait_sql seconds for SQL Server to start ⏳" | tee -a $log
+    echo -e "===============================================\n\n" | tee -a $log
+    sleep $wait_sql
+        
+    # Getting list of scripts
+    scripts=`ls /tmp/initdb/*.sql`
 
     # Run the setup script to create the DB and the schema in the DB
     for script in $scripts
     do
-        echo -e "Processing script: $script ..."
+        echo -e "\nProcessing script: $script ..."
         echo -e "======================================================\n"
-        #/opt/mssql-tools/bin/sqlcmd -U sa -P $SA_PASSWORD -l 30 -e -i $script
         sqlcmd -U SA -l 30 -e -i $script
-        touch /tmp/db-initialized
     done
-        echo -e "\nAll scripts have been executed."
-else
 
+    # End of script with success
+    echo -e "\nThe scripts was successfully completed! 😁"
+    echo -e "===============================================\n"
+    touch /tmp/initdb/db-init-1
+    exit 0
+
+else
     # Wait for the SQL Server to start
-    echo -e "\nSQL Server is starting, DBs are already initialized\n\n"
+    echo -e "Waiting $wait_sql for SQL Server to start\n\n" | tee -a $log
+    sleep $wait_sql
 fi
-# End of script
