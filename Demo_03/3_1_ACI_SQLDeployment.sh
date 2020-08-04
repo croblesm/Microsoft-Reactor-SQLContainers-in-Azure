@@ -32,8 +32,11 @@ az container exec --resource-group $resource_group --name $aci_name --exec-comma
 
 # 3- Listing folders and files
 
-# Creating temp bash profile
+## Creating temp bash profile:
 ## Saving bash prompt changes into temp bash profile
+## Creating temp folder
+# mkdir -p /tmp/sql/
+## Setting console promtp
 # echo "export PS1=\"[dba mastery@ACI] $ \"" > /tmp/sql/.bashrc
 ## Saving SA password env variable into temp bash profile
 # echo "export SQLCMDPASSWORD=_SqLr0ck5_" >> /tmp/sql/.bashrc
@@ -44,7 +47,10 @@ az container exec --resource-group $resource_group --name $aci_name --exec-comma
 source /tmp/sql/.bashrc
 
 # Check folders and files
-ls -ll /SQLFiles/SQLScripts
+ls -R /SQLFiles
+/SQLFiles
+    ├── SQLBackups
+    └── SQLScripts
 
 # --------------------------------------
 # Azure Storage Explorer step
@@ -52,8 +58,15 @@ ls -ll /SQLFiles/SQLScripts
 # 4- Explore ACI + Azure file share with Azure Storage Explorer
 # 5- Copy SQL scripts to file share
 
+# Updated folder structure
+/SQLFiles
+    ├── SQLBackups
+    └── SQLScripts
+        └── 3_2_Create_Database.sql
+
 # 6- Deploy SQL script (from container)
-sqlcmd -U SA -d master -i /SQLFiles/SQLScripts/3_2_Create_Database.sql
+# sqlcmd -U SA -d master -Q "set nocount on; drop database HumanResources;"
+sqlcmd -U SA -d master -e -i /SQLFiles/SQLScripts/3_2_Create_Database.sql
 
 # Checking deployment results (from container)
 sqlcmd -U SA -d master -Q "set nocount on; select name from sys.databases"

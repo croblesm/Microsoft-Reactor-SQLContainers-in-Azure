@@ -28,9 +28,16 @@ az container create \
     --image mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-18.04 \
     --environment-variables ACCEPT_EULA=Y SA_PASSWORD=_SqLr0ck5_ \
     --dns-name-label $aci_name \
-    --cpu 4  --memory 4 \
+    --cpu 4  --memory 4 \  
     --port 1433
 
+# Notes
+# 🔌 DNS label is optional, Azure Virtual networks recommended for real-world scenarios
+# 👀 CPU and Memory are very important for SQL Containers on ACI 
+# 💻 SQL Server system requirements:
+# https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-ver15#system
+
+# JSON returned
 {
   "containers": [
     {
@@ -154,15 +161,18 @@ az container logs  --resource-group $resource_group --name $aci_name --follow
 az container list --resource-group $resource_group -o table
 
 # Listing specific container properties
+# All properties
 az container show \
     --resource-group $resource_group \
     --name $aci_name
 
+# Public IP and FQDN (DNS name) for my ACI
 az container show \
     --resource-group $resource_group \
     --name $aci_name \
     --query "{IP_Adress:ipAddress.ip, FQDN:ipAddress.fqdn}" --out table
 
+# Public IP and FQDN (DNS name) for all ACIs
 az container list \
     --resource-group $resource_group \
     --query "sort_by([].{Name:name,FQDN:ipAddress.fqdn,IP:ipAddress.ip,Port:ipAddress.ports[].port,Status:provisioningState}, &Name)" -o json
@@ -171,7 +181,7 @@ az container list \
 # Azure Data Studio step
 # --------------------------------------
 # 4- Connect to SQL Server container in ACI
-# 5- Show SQL instance dashboard
+# 5- Show SQL instance dashboard and monitor
 
 # 6- Basic container lifecycle management (Optional)
 # Stop container

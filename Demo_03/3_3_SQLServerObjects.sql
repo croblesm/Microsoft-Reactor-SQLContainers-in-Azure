@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------- 
 -- Get SQL Server Instance and OS Level Details
 ---------------------------------------------------------------------------------
+SET NOCOUNT ON;
 
 -- Getting SQL Server instance information
 SELECT
