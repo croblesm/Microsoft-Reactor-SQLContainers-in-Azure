@@ -9,7 +9,6 @@
 * Get SQL Server instance properties (**Azure Data Studio**)
 * Explore database objects (**Azure Data Studio - Optional**)
 
-
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>
 

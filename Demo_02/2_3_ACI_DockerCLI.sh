@@ -1,5 +1,6 @@
 # DEMO 2 - ACI Container from Docker CLI
 # Part 3 - Docker CLI experience
+#
 #   1- Login to Azure
 #   2- List existing Docker CLI contexts
 #   3- Create ACI context called "Microsoft-Reactor"

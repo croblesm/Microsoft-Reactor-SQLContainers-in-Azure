@@ -1,4 +1,4 @@
-# DEMO 3 - Script deployment for SQL containers in ACI 
+# DEMO 3 - Script deployment from Cloud environment
 #
 #   1- Check SQL container status
 #   2- Connect to ACI bash console to explore folders

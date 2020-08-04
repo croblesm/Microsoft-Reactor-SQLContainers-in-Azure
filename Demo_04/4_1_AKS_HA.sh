@@ -1,4 +1,5 @@
 # DEMO 4 - SQL Server HA in AKS
+#
 #   1- Connect to Kubernetes cluster in AKS
 #   2- Get namespaces, nodes, pods and more
 #   3- Check PVC and azure disks provisioned on Kubernetes RG
@@ -46,11 +47,17 @@ kubectl describe pvc pvc-data-plex
 kubectl describe pvc pvc-data-plex | grep "Volume:"
 
 # List disks assigned to Kubernetes RG
-az disk list --resource-group MC_Microsoft-Reactor_endurance_westus --query '[].{Name:name, Size:diskSizeGb, DiskState:diskState}' -o table
+az disk list --resource-group MC_Microsoft-Reactor_endurance_westus \
+    --query '[].{Name:name, Size:diskSizeGb, DiskState:diskState}' -o table
 
 # Filtering by individual disk
 az_disk=`kubectl describe pvc pvc-data-plex | grep "Volume:" | awk '{print $2}'`
-az disk list --resource-group MC_Microsoft-Reactor_endurance_westus --query "[?name=='kubernetes-dynamic-$az_disk'].{Name:name, Size:diskSizeGb, DiskState:diskState}" --output table
+
+# Disk properties
+az disk list --resource-group MC_Microsoft-Reactor_endurance_westus \
+    --query "[?name=='kubernetes-dynamic-$az_disk'].{Name:name, Size:diskSizeGb, DiskState:diskState}" \
+    --output table
+
 # Go to the portal --> All resources --> Look for PVC disk
 
 # 4- Check pod events
@@ -68,13 +75,12 @@ MyService=`kubectl get service mssql-plex-service | grep mssql-plex | awk {'prin
 # Azure Data Studio step
 # --------------------------------------
 # 7- Connect with Azure Data Studio
-cd ~
-open  /Applications/Azure\ Data\ Studio.app 
 
 # 8- Connect to SQL Server to create new database
+# sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "drop database HumanResources;"
 sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "set nocount on; select @@servername;"
 sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "set nocount on; select @@version;"
-sqlcmd -S $MyService,1400 -U SA -P $sa_password -i "4_2_CreateDatabase.sql"
+sqlcmd -S $MyService,1400 -U SA -P $sa_password -e -i 4_2_CreateDatabase.sql
 sqlcmd -S $MyService,1400 -U SA -P $sa_password -Q "set nocount on; select name from sys.databases;"
 
 # 9- Simulate failure

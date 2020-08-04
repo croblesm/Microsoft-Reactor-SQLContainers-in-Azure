@@ -1,5 +1,0 @@
-.DS_Store
-Dockerfile
-.dockerignore
-.gitignore
-EnvBuild.sh

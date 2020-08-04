@@ -20,6 +20,19 @@
 * Start container
 * Delete container
 
+### Part 3 - Docker CLI experience
+
+* Login to Azure
+* List existing Docker CLI contexts
+* Create ACI context called "Microsoft-Reactor"
+* Set Docker CLI context to ACI
+* Check Docker CLI context
+* Create SQL container
+* Check container status
+* Check container logs
+* Connect from local Azure Data Studio
+* Connect from local SQLCMD
+
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>
 

@@ -1,14 +1,17 @@
 --------------------------------------------------------------------------------- 
 -- Create Human Resources database
 ---------------------------------------------------------------------------------
+SET NOCOUNT ON;
 
 -- Create new database
+---------------------------------------------------------------------------------
 USE master
 GO
 CREATE DATABASE HumanResources
 GO
 
--- Create new tables
+-- Create Employee table
+---------------------------------------------------------------------------------
 USE HumanResources
 GO
 CREATE TABLE HumanResources.dbo.Employee 
@@ -20,6 +23,9 @@ CREATE TABLE HumanResources.dbo.Employee
 	    CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED (EmpID)
     )
 GO
+
+-- Load data into Employee table
+---------------------------------------------------------------------------------
 INSERT INTO HumanResources.dbo.Employee 
 	(EmpID, EmpName, Designation, Department, JoiningDate)
 VALUES 
@@ -31,6 +37,8 @@ VALUES
 	(6, 'PLANK OTO', 'ACCOUNTANT', 'ACCOUNTS', GETDATE())
 GO
 
+-- Create Employee details table
+---------------------------------------------------------------------------------
 CREATE TABLE HumanResources.dbo.EmployeeDetails(
 	[EmpID] [int] NULL,
 	[EmpName] [varchar](50) NULL,
@@ -52,6 +60,8 @@ GO
 ALTER TABLE HumanResources.dbo.EmployeeDetails CHECK CONSTRAINT [FK_EmployeeDetails_Employee]
 GO
 
+-- Load data into Employee table
+---------------------------------------------------------------------------------
 INSERT INTO HumanResources.dbo.EmployeeDetails 
     (EmpID, EmpName, Mobile, PresentAddress, Area, City, Country, Qualification, Email)
 VALUES
