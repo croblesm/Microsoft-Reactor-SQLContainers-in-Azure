@@ -30,9 +30,9 @@ spec:
             secretKeyRef:
               name: tars-cred
               key: SA_PASSWORD
-        - name: MSSQL_DATA_DIR           
+        - name: MSSQL_DATA_DIR          
           value: "/data"
-        - name: MSSQL_LOG_DIR           
+        - name: MSSQL_LOG_DIR          
           value: "/log"
         volumeMounts:
         - name: mssql-systemdbs
