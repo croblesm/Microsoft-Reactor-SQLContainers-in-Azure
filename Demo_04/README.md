@@ -11,7 +11,7 @@
 * Simulate failure
 * Get SQL Server instance properties (**Azure Data Studio - Optional**)
 * Explore database objects (**Azure Data Studio - Optional**)
-* Show Kubernetes dashboard
+* Browse Kubernetes dashboard
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

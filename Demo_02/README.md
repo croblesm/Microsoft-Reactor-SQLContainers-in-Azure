@@ -30,8 +30,7 @@
 * Create SQL container
 * Check container status
 * Check container logs
-* Connect from local Azure Data Studio
-* Connect from local SQLCMD
+* Connect from local Azure Data Studio and SQLCMD
 
 # Questions?
 If you have questions or comments about this demo, don't hesitate to contact me at <crobles@dbamastery.com>

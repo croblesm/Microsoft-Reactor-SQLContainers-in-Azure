@@ -11,7 +11,7 @@
 #   9- Simulate failure
 #   10- Get SQL Server instance properties (Azure Data Studio - Optional)
 #   11- Explore database objects (Azure Data Studio - Optional)
-#   12- Show Kubernetes dashboard
+#   12- Browse Kubernetes dashboard
 # -----------------------------------------------------------------------------
 # References:
 #   Kubernetes cheat sheet
@@ -50,7 +50,7 @@ kubectl describe pvc pvc-data-plex | grep "Volume:"
 az disk list --resource-group MC_Microsoft-Reactor_endurance_westus \
     --query '[].{Name:name, Size:diskSizeGb, DiskState:diskState}' -o table
 
-# Filtering by individual disk
+# Filtering by individual disk provisioned to PVC (plex-sql)
 az_disk=`kubectl describe pvc pvc-data-plex | grep "Volume:" | awk '{print $2}'`
 
 # Disk properties

@@ -2,7 +2,7 @@
 
 * Check SQL container status
 * Connect to ACI bash console to explore folders
-* Listing folders and files
+* List folders and files
 * Explore ACI + Azure file share with Azure Storage Explorer
 * Copy SQL scripts to file share (**Azure Storage Explorer**)
 * Deploy SQL script (**From container**)

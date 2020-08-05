@@ -2,7 +2,7 @@
 #
 #   1- Check SQL container status
 #   2- Connect to ACI bash console to explore folders
-#   3- Listing folders and files
+#   3- List folders and files
 #   4- Explore ACI + Azure file share with Azure Storage Explorer
 #   5- Copy SQL scripts to file share (Azure Storage Explorer)
 #   6- Deploy SQL script (From container)
@@ -30,7 +30,7 @@ az container show \
 # 2- Connect to ACI bash console to explore folders
 az container exec --resource-group $resource_group --name $aci_name --exec-command "/bin/bash"
 
-# 3- Listing folders and files
+# 3- List folders and files
 
 ## Creating temp bash profile:
 ## Saving bash prompt changes into temp bash profile
